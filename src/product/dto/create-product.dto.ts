@@ -4,9 +4,16 @@ import {
     IsNumber,
     MaxLength,
     MinLength,
-  } from 'class-validator';
-  
+  } from 'class-validator';  
   export class CreateProductDto {
+
+    constructor(name: string, sku: string, price: number, picture: string) {
+        this.name = name;
+        this.sku = sku;
+        this.price = price;
+        this.picture = picture;
+    }
+
     @IsString()
     @IsNotEmpty()
     @MinLength(5)
