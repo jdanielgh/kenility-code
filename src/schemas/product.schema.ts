@@ -7,6 +7,14 @@ export type ProductDocument = Product & Document;
   timestamps: { createdAt: 'created', updatedAt: 'updated' },
 })
 export class Product {
+
+  constructor(name: string, sku: string, price: number, picture: string) {
+    this.name = name;
+    this.sku = sku;
+    this.price = price;
+    this.picture = picture;
+  }
+
   @Prop({ required: true })
   name: string;
 
@@ -17,7 +25,7 @@ export class Product {
   price: number;
 
   @Prop({ required: true })
-  picture: number;
+  picture: string;
 }
 
 export const ProductSchema = SchemaFactory.createForClass(Product);
