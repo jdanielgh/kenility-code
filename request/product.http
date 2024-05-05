@@ -1,0 +1,11 @@
+@host=http://localhost:3000
+### Product: Create
+POST {{host}}/product
+Content-Type: application/json
+
+{
+    "sku": "112345",
+    "name": "PrimerProduct",
+    "price": 3,
+    "picture": "4"
+}
