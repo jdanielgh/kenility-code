@@ -18,7 +18,7 @@ export class Product {
   @Prop({ required: true })
   name: string;
 
-  @Prop({ required: true })
+  @Prop({ required: true, unique: true})
   sku: string;
 
   @Prop({ required: true })
