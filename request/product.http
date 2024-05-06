@@ -1,11 +1,30 @@
 @host=http://localhost:3000
+
 ### Product: Create
 POST {{host}}/product
 Content-Type: application/json
 
 {
     "sku": "112345",
-    "name": "PrimerProduct",
+    "name": "PrimerProduct2",
     "price": 3,
     "picture": "4"
 }
+
+### Product: Get
+GET {{host}}/product/112345
+
+### Product: GetAll
+GET {{host}}/product
+
+### Product: Update
+PATCH {{host}}/product/112345
+Content-Type: application/json
+
+{
+    "price": 5,
+    "picture": "updatedPicture"
+}
+
+### Product: Delete
+DELETE {{host}}/product/112345
