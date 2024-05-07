@@ -1,0 +1,31 @@
+@host=http://localhost:3000
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwic3ViIjoiYWRtaW4iLCJpYXQiOjE3MTUwNTc2NzksImV4cCI6MTcxNTA2MTI3OX0.OBsNsWFX8nnel9Ej7Dxb7JO6XKLgkJ7KtUTGr-mhst0
+
+
+### Order: Create
+POST {{host}}/order
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "orderId": "12345",
+    "name": "Daniel User",
+    "total": 3,
+    "productList": ["1", "2"]
+}
+
+
+### Order: Get
+GET {{host}}/order
+Authorization: Bearer {{token}}
+
+### Order: Update
+PATCH {{host}}/order/1231245
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{    
+    "total": 10,
+    "name": "Daniel User updated",
+    "productList": ["4", "5", "6"]
+}

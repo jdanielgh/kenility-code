@@ -19,6 +19,7 @@ export class ProductService {
   async update(id: string, data: UpdateProductDto): Promise<CreateProductDto> {
     const product = ProductMapper.toDomain(data);
     const productFromDb = await this.productRepository.update(id, product);
+    if(!productFromDb) return null;
     const productDto = ProductMapper.toDto(productFromDb);
     return productDto;
   }

@@ -19,6 +19,7 @@ export class ProductMongoDbRepository implements ProductRepository {
     }
     async update(sku: string, data: Product): Promise<Product> {
         const product = await this.productModel.findOneAndUpdate({ sku }, data, { new: true }).exec();
+        if(!product) return null;
         return ProductMapper.toDomain(product);
     }
     async delete(sku: string): Promise<Product> {

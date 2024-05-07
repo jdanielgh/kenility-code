@@ -1,5 +1,5 @@
 @host=http://localhost:3000
-@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwic3ViIjoiYWRtaW4iLCJpYXQiOjE3MTUwNDg3MjgsImV4cCI6MTcxNTA1MjMyOH0.vFS-13lJ-ZKAv5DU0iUEzHWEKFplvn-NTy4lLTIO0PA
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwic3ViIjoiYWRtaW4iLCJpYXQiOjE3MTUwNTc2NzksImV4cCI6MTcxNTA2MTI3OX0.OBsNsWFX8nnel9Ej7Dxb7JO6XKLgkJ7KtUTGr-mhst0
 
 ### Product: Create
 POST {{host}}/product
