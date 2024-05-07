@@ -1,4 +1,4 @@
-import type { Product } from "src/schemas/product.schema";
+import type { Product } from "src/insfrastructure/database/schemas/product.schema";
 import { DatabaseRepository } from "./database.abstract";
 
 export abstract class ProductRepository extends DatabaseRepository<Product>{
