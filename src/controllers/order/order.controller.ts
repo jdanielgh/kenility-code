@@ -51,8 +51,19 @@ export class OrderController {
     @Get('highest-amount-sold')
     async highestAmountSold() {
         try {
-            const result = await this.orderService.higthAmountSold();
+            const result = await this.orderService.getHigthestAmountSold();
             if(result === null) throw new HttpException('No orders found', HttpStatus.NOT_FOUND);
+            return result;
+        } catch (error) {
+            console.log(error);
+            throw new HttpException('Internal server error', HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @Get('total-sold-price/:startDate/:endDate')
+    async totalSoldPrice(@Param('startDate') startDate: string, @Param('endDate') endDate: string) {
+        try {
+            const result = await this.orderService.getSoldOrdersByDate(startDate, endDate);
             return result;
         } catch (error) {
             console.log(error);
