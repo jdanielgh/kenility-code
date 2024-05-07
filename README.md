@@ -22,52 +22,44 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+# Kenility Code
 
-## Installation
+## Tools Used
 
-```bash
-$ npm install
-```
+- [NestJS](https://docs.nestjs.com/)
+- [MongoDB](https://docs.mongodb.com/)
+- [Mongoose](https://mongoosejs.com/docs/guide.html)
+- [ExpressJS](https://expressjs.com/)
+- [TypeScript](https://www.typescriptlang.org/docs/)
+- [Node.js](https://nodejs.org/en/docs/) (version 20.11.0)
+- [Docker](https://docs.docker.com/)
+- [Docker Compose](https://docs.docker.com/compose/)
 
-## Running the app
+## Execution
+## Setup
 
-```bash
-# development
-$ npm run start
+Before running the project, you need to set up your environment variables:
 
-# watch mode
-$ npm run start:dev
+1. Rename the `env.example` file to `.env`.
+   - On Windows, you can use the command: `rename env.example .env`
+   - On Unix-based systems (like Linux or MacOS), you can use the command: `mv env.example .env`
 
-# production mode
-$ npm run start:prod
-```
+2. Open the `.env` file and replace the placeholders with your actual data.
 
-## Test
+After setting up your environment variables, you can proceed with the project execution 
 
-```bash
-# unit tests
-$ npm run test
+as described in the [Execution](#execution) section.
+To run this project, follow these steps:
 
-# e2e tests
-$ npm run test:e2e
+1. Ensure you have Docker and Docker Compose installed on your machine.
+2. Open a terminal at the root of the project.
+3. Run the command `docker-compose up`.
 
-# test coverage
-$ npm run test:cov
-```
+## Requests
 
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+The request files are located in the "request" folder at the root of the project. This project uses JWT for authentication, so you will need to authenticate and place the token in the authorization header for all requests.
 
 ## License
 
-Nest is [MIT licensed](LICENSE).
+[MIT](https://choosealicense.com/licenses/mit/)
