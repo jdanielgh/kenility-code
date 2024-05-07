@@ -27,10 +27,16 @@ export class OrderService {
         return OrderMapper.toDto(OrderUpdated);
     }
 
-    async higthAmountSold() {
+    async getHigthestAmountSold() {
         const order = await this.orderRepository.higthestAmountSold();
         if(!order) return null;
         return OrderMapper.toDto(order);
     }
-}
 
+    async getSoldOrdersByDate(startDate: string, endDate: string) {
+        const start = new Date(startDate);
+        const end = new Date(endDate);
+        const total = await this.orderRepository.getTotalSoldPrice(start, end);
+        return OrderMapper.toDtoSalesTotalForDate(total, startDate, endDate);
+    }
+}

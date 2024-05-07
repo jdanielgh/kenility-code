@@ -1,5 +1,5 @@
 @host=http://localhost:3000
-@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwic3ViIjoiYWRtaW4iLCJpYXQiOjE3MTUxMDQzODIsImV4cCI6MTcxNTEwNzk4Mn0.K09RjmR944RckX7p4egAi2dmO5UZCxoRnxmTeO4QNU0
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwic3ViIjoiYWRtaW4iLCJpYXQiOjE3MTUxMTcxMDcsImV4cCI6MTcxNTEyMDcwN30.4vIOE4ES5rrJorQRapj1rKewMoGKqoO3lU48aHk767E
 
 
 ### Order: Create
@@ -8,10 +8,10 @@ Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-    "orderId": "1234567891234",
+    "orderId": "12345678912345",
     "name": "Daniel User",
     "total": 3,
-    "productList": ["112345", "1123455", "11234567"]
+    "productList": ["112345"]
 }
 
 
@@ -23,7 +23,12 @@ Authorization: Bearer {{token}}
 GET {{host}}/order/highest-amount-sold
 Authorization: Bearer {{token}}
 
-### Order: Update
+### Order: Get sold orders for date
+GET {{host}}/order/total-sold-price/2024-05-01T00:00:00Z/2024-05-30T00:00:00Z
+Authorization: Bearer {{token}}
+
+
+### Order: Update 2022-03-01T00:00:00Z
 PATCH {{host}}/order/123456789123
 Authorization: Bearer {{token}}
 Content-Type: application/json
@@ -32,3 +37,4 @@ Content-Type: application/json
     "name": "Daniel User updated",
     "productList": ["1123456", "112345", "1123455"]
 }
+
