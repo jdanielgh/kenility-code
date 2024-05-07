@@ -1,9 +1,9 @@
 import { Injectable } from "@nestjs/common";
 import { InjectModel } from "@nestjs/mongoose";
 import { Model } from "mongoose";
-import { ProductMapper } from "src/mappers/product.mapper";
-import { ProductRepository } from "src/ports/product.abastract";
-import { Product, ProductDocument } from "src/schemas/product.schema";
+import { ProductMapper } from "src/application/mappers/product.mapper";
+import { ProductRepository } from "src/application/ports/product.abstract";
+import { Product, ProductDocument } from "src/insfrastructure/database/schemas/product.schema";
 
 @Injectable()
 export class ProductMongoDbRepository implements ProductRepository {

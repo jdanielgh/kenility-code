@@ -1,5 +1,5 @@
-import { CreateProductDto } from "src/product/dto/create-product.dto";
-import { Product } from "src/schemas/product.schema";
+import { CreateProductDto } from "src/application/product/dto/create-product.dto";
+import { Product } from "src/insfrastructure/database/schemas/product.schema";
 
 export class ProductMapper {
     static toDomain(createProductDto: Partial<CreateProductDto>) {

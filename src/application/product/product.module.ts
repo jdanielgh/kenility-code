@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common';
-import { ProductService } from './product.service';
-import { ProductController } from './product.controller';
+import { ProductService } from './services/product.service';
+import { ProductController } from '../../controllers/product.controller';
 import { MongooseModule } from '@nestjs/mongoose';
-import { Product, ProductSchema } from 'src/schemas/product.schema';
-import { ProductRepository } from 'src/ports/product.abastract';
-import { ProductMongoDbRepository } from 'src/adapters/product.mongodb.repository';
+import { Product, ProductSchema } from 'src/insfrastructure/database/schemas/product.schema';
+import { ProductRepository } from 'src/application/ports/product.abstract';
+import { ProductMongoDbRepository } from 'src/insfrastructure/adapters/product.mongodb.repository';
 
 @Module({
   imports: [

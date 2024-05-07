@@ -1,5 +1,5 @@
 @host=http://localhost:3000
-@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwic3ViIjoiYWRtaW4iLCJpYXQiOjE3MTUwNDQxNzIsImV4cCI6MTcxNTA0Nzc3Mn0.6_R0s-6LKx8UCeGa-sExePy_pm_hOB1BQuuw8g6TtaY
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwic3ViIjoiYWRtaW4iLCJpYXQiOjE3MTUwNDg3MjgsImV4cCI6MTcxNTA1MjMyOH0.vFS-13lJ-ZKAv5DU0iUEzHWEKFplvn-NTy4lLTIO0PA
 
 ### Product: Create
 POST {{host}}/product
@@ -7,7 +7,7 @@ Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-    "sku": "112345",
+    "sku": "1123455",
     "name": "PrimerProduct2",
     "price": 3,
     "picture": "4"
