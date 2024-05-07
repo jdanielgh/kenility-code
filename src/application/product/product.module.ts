@@ -23,5 +23,6 @@ import { ProductMongoDbRepository } from 'src/insfrastructure/adapters/product.m
     },
   ],
   controllers: [ProductController],
+  exports: [MongooseModule],
 })
 export class ProductModule {}

@@ -1,5 +1,5 @@
 @host=http://localhost:3000
-@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwic3ViIjoiYWRtaW4iLCJpYXQiOjE3MTUwNTc2NzksImV4cCI6MTcxNTA2MTI3OX0.OBsNsWFX8nnel9Ej7Dxb7JO6XKLgkJ7KtUTGr-mhst0
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwic3ViIjoiYWRtaW4iLCJpYXQiOjE3MTUxMDQzODIsImV4cCI6MTcxNTEwNzk4Mn0.K09RjmR944RckX7p4egAi2dmO5UZCxoRnxmTeO4QNU0
 
 
 ### Order: Create
@@ -8,10 +8,10 @@ Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-    "orderId": "12345",
+    "orderId": "123456789123",
     "name": "Daniel User",
     "total": 3,
-    "productList": ["1", "2"]
+    "productList": ["112345", "1123455"]
 }
 
 
@@ -20,12 +20,11 @@ GET {{host}}/order
 Authorization: Bearer {{token}}
 
 ### Order: Update
-PATCH {{host}}/order/1231245
+PATCH {{host}}/order/123456789123
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {    
-    "total": 10,
     "name": "Daniel User updated",
-    "productList": ["4", "5", "6"]
+    "productList": ["1123456", "112345", "1123455"]
 }
