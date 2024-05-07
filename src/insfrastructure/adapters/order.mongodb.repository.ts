@@ -14,8 +14,15 @@ export class OrderMongoDbRepository implements OrderRepository {
     getTotalSoldPrice(startDate: number, endDate: number): Promise<number> {
         throw new Error("Method not implemented.");
     }
-    higtherAmountSold(): Promise<Order> {
-        throw new Error("Method not implemented.");
+    async higthestAmountSold(): Promise<Order> {
+        const highestTotalOrder = await this.orderModel
+            .findOne()
+            .sort('-total')
+            .exec();
+    
+        if (!highestTotalOrder) return null;
+    
+        return OrderMapper.toDomain(highestTotalOrder);
     }
     async create(data: Order): Promise<Order> {
         const orderFromDB = await this.orderModel.findOne({orderId: data.orderId}).exec();

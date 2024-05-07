@@ -47,4 +47,16 @@ export class OrderController {
             throw new HttpException('Internal server error', HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    @Get('highest-amount-sold')
+    async highestAmountSold() {
+        try {
+            const result = await this.orderService.higthAmountSold();
+            if(result === null) throw new HttpException('No orders found', HttpStatus.NOT_FOUND);
+            return result;
+        } catch (error) {
+            console.log(error);
+            throw new HttpException('Internal server error', HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 }
