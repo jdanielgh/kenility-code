@@ -1,13 +1,15 @@
 import { Module } from "@nestjs/common";
 import { MongooseModule } from "@nestjs/mongoose";
+import { OrderController } from "src/controllers/order/order.controller";
+import { OrderMongoDbRepository } from "src/insfrastructure/adapters/order.mongodb.repository";
 import { Order, OrderSchema } from "src/insfrastructure/database/schemas/order.schema";
 import { OrderRepository } from "../ports/order.abstract";
-import { OrderMongoDbRepository } from "src/insfrastructure/adapters/order.mongodb.repository";
+import { ProductModule } from "../product/product.module";
 import { OrderService } from "./services/order.service";
-import { OrderController } from "src/controllers/order/order.controller";
 
 @Module({
     imports: [
+      ProductModule,
       MongooseModule.forFeature([
         {
           name: Order.name,
@@ -20,7 +22,7 @@ import { OrderController } from "src/controllers/order/order.controller";
       {
         provide: OrderRepository,
         useClass: OrderMongoDbRepository,
-      },
+      }
     ],
     controllers: [OrderController],
   })

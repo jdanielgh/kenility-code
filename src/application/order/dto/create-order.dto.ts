@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsString, IsNumber, IsArray, ArrayNotEmpty } from 'class-validator';
+import { IsNotEmpty, IsString, IsNumber, IsArray, ArrayNotEmpty, IsOptional } from 'class-validator';
 
 export class CreateOrderDto {
 
@@ -17,7 +17,7 @@ export class CreateOrderDto {
     @IsString()
     readonly name: string;
 
-    @IsNotEmpty()
+    @IsOptional()
     @IsNumber()
     readonly total: number;
 
