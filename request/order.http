@@ -8,15 +8,19 @@ Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-    "orderId": "123456789123",
+    "orderId": "1234567891234",
     "name": "Daniel User",
     "total": 3,
-    "productList": ["112345", "1123455"]
+    "productList": ["112345", "1123455", "11234567"]
 }
 
 
 ### Order: Get
 GET {{host}}/order
+Authorization: Bearer {{token}}
+
+### Order: Get higthest total
+GET {{host}}/order/highest-amount-sold
 Authorization: Bearer {{token}}
 
 ### Order: Update

@@ -26,5 +26,11 @@ export class OrderService {
         if(!OrderUpdated) return null;
         return OrderMapper.toDto(OrderUpdated);
     }
+
+    async higthAmountSold() {
+        const order = await this.orderRepository.higthestAmountSold();
+        if(!order) return null;
+        return OrderMapper.toDto(order);
+    }
 }
 

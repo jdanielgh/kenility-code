@@ -7,9 +7,9 @@ Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {
-    "sku": "1123456",
+    "sku": "11234567",
     "name": "PrimerProduct2",
-    "price": 100,
+    "price": 200,
     "picture": "4"
 }
 
