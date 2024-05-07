@@ -5,7 +5,7 @@ import {
     MaxLength,
     MinLength,
   } from 'class-validator';  
-  export class CreateProductDto {
+  export class CreateProductOutputDto {
 
     constructor(name: string, sku: string, price: number, picture: string) {
         this.name = name;

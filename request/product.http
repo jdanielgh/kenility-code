@@ -1,17 +1,29 @@
 @host=http://localhost:3000
-@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwic3ViIjoiYWRtaW4iLCJpYXQiOjE3MTUxMDQzODIsImV4cCI6MTcxNTEwNzk4Mn0.K09RjmR944RckX7p4egAi2dmO5UZCxoRnxmTeO4QNU0
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwic3ViIjoiYWRtaW4iLCJpYXQiOjE3MTUxMjM5MDcsImV4cCI6MTcxNTEyNzUwN30.r9gDI3JYsAvUaVzsoltaz-tQVM0AKbKfeHu1dviuJBs
 
 ### Product: Create
 POST {{host}}/product
 Authorization: Bearer {{token}}
-Content-Type: application/json
+Content-Type: multipart/form-data; boundary=WebAppBoundary
 
-{
-    "sku": "11234567",
-    "name": "PrimerProduct2",
-    "price": 200,
-    "picture": "4"
-}
+--WebAppBoundary
+Content-Disposition: form-data; name="sku"
+
+112345678
+--WebAppBoundary
+Content-Disposition: form-data; name="name"
+
+PrimerProduct2
+--WebAppBoundary
+Content-Disposition: form-data; name="price"
+
+200
+--WebAppBoundary
+Content-Disposition: form-data; name="pictureFile"; filename="filename.jpg"
+Content-Type: image/jpeg
+
+< ./images/product.png
+--WebAppBoundary--
 
 ### Product: Get
 GET {{host}}/product/1123455
