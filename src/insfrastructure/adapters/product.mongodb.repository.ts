@@ -14,20 +14,20 @@ export class ProductMongoDbRepository implements ProductRepository {
     if (productFromDb) return null;
     const product = new this.productModel(createProductDto);
     const result = await product.save();
-    return ProductMapper.toDomain(result);
+    return ProductMapper.DboToDomain(result);
   }
   async update(sku: string, data: Product): Promise<Product> {
     const product = await this.productModel.findOneAndUpdate({ sku }, data, { new: true }).exec();
     if (!product) return null;
-    return ProductMapper.toDomain(product);
+    return ProductMapper.DboToDomain(product);
   }
   async delete(sku: string): Promise<Product> {
     const product = await this.productModel.findOneAndDelete({ sku }).exec();
-    return ProductMapper.toDomain(product);
+    return ProductMapper.DboToDomain(product);
   }
   async findAll(): Promise<Product[]> {
     const products = await this.productModel.find().exec();
-    return products.map(ProductMapper.toDomain);
+    return products.map(ProductMapper.DboToDomain);
   }
   async findOne(id: string): Promise<Product> {
     console.log('findOne', id);
@@ -35,6 +35,6 @@ export class ProductMongoDbRepository implements ProductRepository {
   }
   async getProductBySku(sku: string): Promise<Product> {
     const product = await this.productModel.findOne({ sku }).exec();
-    return product && ProductMapper.toDomain(product);
+    return product && ProductMapper.DboToDomain(product);
   }
 }

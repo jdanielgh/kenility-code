@@ -1,9 +1,11 @@
-import { Body, Controller, Delete, Get, HttpException, HttpStatus, Param, Patch, Post, Res, UseGuards } from '@nestjs/common';
+import { Body, Controller, Delete, Get, HttpException, HttpStatus, Param, Patch, Post, Res, UploadedFile, UseGuards, UseInterceptors, ValidationPipe } from '@nestjs/common';
 import { ProductService } from '../application/product/services/product.service';
-import { CreateProductDto } from '../application/product/dto/create-product.dto';
 import { UpdateProductDto } from '../application/product/dto/update-product.dto';
 import { Response } from 'express';
 import { AuthGuard } from '@nestjs/passport';
+import { FileInterceptor } from '@nestjs/platform-express';
+import { diskStorage } from 'multer';
+import { CreateProductInputDto } from 'src/application/product/dto/create-product.input.dto';
 
 @UseGuards(AuthGuard('jwt'))
 @Controller('product')
@@ -11,9 +13,23 @@ export class ProductController {
     constructor(private readonly productService: ProductService) {}
 
     @Post()
-    async create(@Body() createProductDto: CreateProductDto, @Res({ passthrough: true }) res: Response) {
+    @UseInterceptors(FileInterceptor('pictureFile', {
+      storage: diskStorage({
+        destination: './uploads',
+        filename: (req, file, cb) => {
+          const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9)
+          cb(null, file.fieldname + '-' + uniqueSuffix)
+        }
+      })
+    }))
+    async create(@Body() createProductDto: CreateProductInputDto, @UploadedFile() file: any, @Res({ passthrough: true }) res: Response) {
       try {
-        const result =  await this.productService.create(createProductDto);
+        console.log('create', createProductDto);
+        console.log('file', file.path)
+        const productWithPictureUrl = file.path
+          ? { ...createProductDto, picture: file.path } 
+          : createProductDto;
+        const result =  await this.productService.create(productWithPictureUrl);
         if(result === null) {
           res.status(HttpStatus.CONFLICT).send('Product already exists');
           return;
