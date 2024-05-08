@@ -19,7 +19,7 @@ export class CreateOrderDto {
 
     @IsOptional()
     @IsNumber()
-    readonly total: number;
+    readonly total?: number;
 
     @IsNotEmpty()
     @IsArray()
