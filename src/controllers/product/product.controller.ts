@@ -1,6 +1,6 @@
 import { Body, Controller, Delete, Get, HttpException, HttpStatus, Param, Patch, Post, Res, UploadedFile, UseGuards, UseInterceptors, ValidationPipe } from '@nestjs/common';
-import { ProductService } from '../application/product/services/product.service';
-import { UpdateProductDto } from '../application/product/dto/update-product.dto';
+import { ProductService } from '../../application/product/services/product.service';
+import { UpdateProductDto } from '../../application/product/dto/update-product.dto';
 import { Response } from 'express';
 import { AuthGuard } from '@nestjs/passport';
 import { FileInterceptor } from '@nestjs/platform-express';
