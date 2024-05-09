@@ -1,6 +1,6 @@
 import { Module } from "@nestjs/common";
 import { MongooseModule } from "@nestjs/mongoose";
-import { OrderController } from "src/controllers/order/order.controller";
+import { OrderController } from "src/insfrastructure/controllers/order/order.controller";
 import { OrderMongoDbRepository } from "src/insfrastructure/adapters/order.mongodb.repository";
 import { Order, OrderSchema } from "src/insfrastructure/database/schemas/order.schema";
 import { OrderRepository } from "../ports/order.abstract";

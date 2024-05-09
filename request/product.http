@@ -1,5 +1,5 @@
 @host=http://localhost:3000
-@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwic3ViIjoiYWRtaW4iLCJpYXQiOjE3MTUxMjcxOTAsImV4cCI6MTcxNTEzMDc5MH0.qCv54DyPe2TqAvMlSBfEi6Zhigemh9AdJ3WWMbJy5ec
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwic3ViIjoiYWRtaW4iLCJpYXQiOjE3MTUyMjE1NTksImV4cCI6MTcxNTIyNTE1OX0.cIRFOCs6oYj7ILeW9VMJXgA0PLC8yp502dqjsjwk3Kg
 
 ### Product: Create
 POST {{host}}/product
@@ -9,7 +9,7 @@ Content-Type: multipart/form-data; boundary=WebAppBoundary
 --WebAppBoundary
 Content-Disposition: form-data; name="sku"
 
-1123456789
+112345678910
 --WebAppBoundary
 Content-Disposition: form-data; name="name"
 
